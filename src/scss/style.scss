@@ -1,0 +1,79 @@
+@import './styleHelpers.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  color: $MainColor;
+  background-color: $MainColor;
+  font-family: Calibri, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.collapse {
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $Color4;
+
+  @extend %shadowBlock;
+
+  &__content {
+    padding: 16px;
+  }
+
+  &__button {
+    display: block;
+    border: 0;
+    padding: 8px 20px;
+    background-color: $Color3;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: $Color4;
+
+    @extend %shadowContent;
+
+    &:hover {
+      animation: bounce 1s;
+    }
+  }
+
+  &__text {
+    border: 2px dotted $Color2;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 24px;
+  }
+
+  &__text-wrapper {
+    transition: all 1s;
+    overflow: hidden;
+    height: auto;
+
+    &.collapsed {
+      height: 0;
+    }
+  }
+}
